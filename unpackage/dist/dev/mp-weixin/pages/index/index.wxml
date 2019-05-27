@@ -1,1 +1,2 @@
-<view class="content" bind:__l="__l"><image class="logo" src="/static/logo.png"></image><view><text class="title">{{title}}</text></view><cu-custom bgColor="bg-gradual-blue" isBack="{{true}}" vue-slots="{{['backText','content']}}"><view slot="backText">返回</view><view slot="content">导航栏</view></cu-custom></view>
+<import src="./index.vue.wxml" />
+    <template is="654f31f2" data="{{ ...$root['0'], $root }}"/>
