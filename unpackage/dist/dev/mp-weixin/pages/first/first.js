@@ -36,10 +36,70 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
-      PageCur: 'left' };
+      PageCur: 'left',
+      modalName: null,
+      dateFrom: '2019-06-01',
+      dateTo: '2019-06-25' };
 
   },
   methods: {
@@ -50,6 +110,18 @@
       uni.navigateTo({
         url: '/pages/mid/mid' });
 
+    },
+    showModal: function showModal(e) {
+      this.modalName = e.currentTarget.dataset.target;
+    },
+    hideModal: function hideModal(e) {
+      this.modalName = null;
+    },
+    DateChange1: function DateChange1(e) {
+      this.dateFrom = e.detail.value;
+    },
+    DateChange2: function DateChange2(e) {
+      this.dateTo = e.detail.value;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
@@ -108,23 +180,15 @@ var render = function() {
         _c(
           "view",
           {
-            staticClass: "action",
-            attrs: { eventid: "3f845c43-1" },
-            on: { click: _vm.navto }
+            staticClass: "action text-gray add-action",
+            attrs: { "data-target": "DialogModal1", eventid: "3f845c43-1" },
+            on: { tap: _vm.showModal }
           },
           [
-            _c(
-              "view",
-              { staticClass: "action text-gray add-action" },
-              [
-                _c("button", {
-                  staticClass: "cu-btn cuIcon-add bg-green shadow"
-                }),
-                _vm._v("发起挑战")
-              ],
-              1
-            )
-          ]
+            _c("button", { staticClass: "cu-btn cuIcon-add bg-green shadow" }),
+            _vm._v("发起挑战")
+          ],
+          1
         ),
         _c(
           "view",
@@ -151,7 +215,140 @@ var render = function() {
             )
           ]
         )
-      ])
+      ]),
+      _c(
+        "view",
+        {
+          staticClass: "cu-modal",
+          class: _vm.modalName == "DialogModal1" ? "show" : ""
+        },
+        [
+          _c(
+            "view",
+            { staticClass: "cu-dialog" },
+            [
+              _c("view", { staticClass: "cu-bar bg-white justify-end" }, [
+                _c("view", { staticClass: "content" }, [_vm._v("发起挑战")]),
+                _c(
+                  "view",
+                  {
+                    staticClass: "action",
+                    attrs: { eventid: "3f845c43-3" },
+                    on: { tap: _vm.hideModal }
+                  },
+                  [_c("text", { staticClass: "cuIcon-close text-red" })]
+                )
+              ]),
+              _c("form", [
+                _c("view", { staticClass: "cu-form-group margin-top" }, [
+                  _c("view", { staticClass: "title" }, [_vm._v("标题")]),
+                  _c("input", {
+                    attrs: { placeholder: "取一个响亮标题吧", name: "input" }
+                  })
+                ]),
+                _c("view", { staticClass: "cu-form-group" }, [
+                  _c("view", { staticClass: "title" }, [
+                    _vm._v("体重目标(绝对值)")
+                  ]),
+                  _c("input", {
+                    attrs: { placeholder: "目标体重(kg)", name: "input" }
+                  })
+                ]),
+                _c("view", { staticClass: "cu-form-group" }, [
+                  _c("view", { staticClass: "title" }, [
+                    _vm._v("体重目标(相对值)")
+                  ]),
+                  _c("input", {
+                    attrs: { placeholder: "目标减重(kg)", name: "input" }
+                  })
+                ]),
+                _c("view", { staticClass: "cu-form-group" }, [
+                  _c("view", { staticClass: "title" }, [_vm._v("投注上限")]),
+                  _c("input", {
+                    attrs: { placeholder: "投注的上限(10-100)", name: "input" }
+                  }),
+                  _c("text", { staticClass: "cuIcon-moneybag lg text-yellow" })
+                ]),
+                _c(
+                  "view",
+                  { staticClass: "cu-form-group" },
+                  [
+                    _c("view", { staticClass: "title" }, [_vm._v("开始日期")]),
+                    _c(
+                      "picker",
+                      {
+                        attrs: {
+                          mode: "date",
+                          value: _vm.dateFrom,
+                          start: "2019-06-01",
+                          end: "2090-09-01",
+                          eventid: "3f845c43-4"
+                        },
+                        on: { change: _vm.DateChange1 }
+                      },
+                      [
+                        _c("view", { staticClass: "picker" }, [
+                          _vm._v(_vm._s(_vm.dateFrom))
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _c(
+                  "view",
+                  { staticClass: "cu-form-group" },
+                  [
+                    _c("view", { staticClass: "title" }, [_vm._v("结束日期")]),
+                    _c(
+                      "picker",
+                      {
+                        attrs: {
+                          mode: "date",
+                          value: _vm.dateTo,
+                          start: "2019-06-01",
+                          end: "2090-09-01",
+                          eventid: "3f845c43-5"
+                        },
+                        on: { change: _vm.DateChange2 }
+                      },
+                      [
+                        _c("view", { staticClass: "picker" }, [
+                          _vm._v(_vm._s(_vm.dateTo))
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _c("view", { staticClass: "cu-bar bg-white" }, [
+                _c(
+                  "view",
+                  {
+                    staticClass:
+                      "action margin-0 flex-treble text-green solid-left",
+                    attrs: { eventid: "3f845c43-6" },
+                    on: { tap: _vm.hideModal }
+                  },
+                  [_vm._v("发布挑战")]
+                ),
+                _c(
+                  "view",
+                  {
+                    staticClass:
+                      "action margin-0 flex-sub  solid-left text-gray",
+                    attrs: { eventid: "3f845c43-7" },
+                    on: { tap: _vm.hideModal }
+                  },
+                  [_vm._v("取消")]
+                )
+              ])
+            ],
+            1
+          )
+        ]
+      )
     ],
     1
   )

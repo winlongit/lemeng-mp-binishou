@@ -15,6 +15,30 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   name: "mid",
   data: function data() {
@@ -41,7 +65,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view")
+  return _c(
+    "view",
+    [
+      _c(
+        "cu-custom",
+        {
+          attrs: {
+            bgColor: "bg-gradual-pink",
+            isBack: true,
+            mpcomid: "f6a2b69a-0"
+          }
+        },
+        [
+          _c("block", { slot: "backText" }, [_vm._v("返回")]),
+          _c("block", { slot: "content" }, [_vm._v("发布挑战")])
+        ],
+        1
+      ),
+      _c("form", [
+        _c("view", { staticClass: "cu-form-group margin-top" }, [
+          _c("view", { staticClass: "title" }, [_vm._v("标题")]),
+          _c("input", {
+            attrs: { placeholder: "取一个响亮标题吧", name: "input" }
+          })
+        ]),
+        _c("view", { staticClass: "cu-form-group" }, [
+          _c("view", { staticClass: "title" }, [_vm._v("体重目标(绝对值)")]),
+          _c("input", {
+            attrs: { placeholder: "打算控制体重到55kg,填写(55)", name: "input" }
+          })
+        ]),
+        _c("view", { staticClass: "cu-form-group" }, [
+          _c("view", { staticClass: "title" }, [_vm._v("体重目标(相对值)")]),
+          _c("input", {
+            attrs: { placeholder: "小目标:准备减肥5kg,填写(5)", name: "input" }
+          })
+        ]),
+        _c("view", { staticClass: "cu-form-group" }, [
+          _c("view", { staticClass: "title" }, [_vm._v("投注上限")]),
+          _c("input", {
+            attrs: { placeholder: "设定投注的上限,例(100)", name: "input" }
+          }),
+          _c("text", { staticClass: "cuIcon-moneybag lg text-yellow" })
+        ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
