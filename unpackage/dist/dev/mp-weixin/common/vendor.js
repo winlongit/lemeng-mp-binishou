@@ -463,7 +463,7 @@ function getData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7201,6 +7201,50 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   name: "left",
   data: function data() {
@@ -7230,14 +7274,116 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   name: "right",
+  components: {},
+
+
   data: function data() {
-    return {};
+    return {
+      index: 2,
+      avatar: [
+      'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
+      'https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg',
+      'https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg',
+      'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg'] };
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    $_click: function $_click(itemname) {
+      console.log(itemname);
+    } } };exports.default = _default;
 
 /***/ }),
 
@@ -7260,545 +7406,709 @@ var render = function() {
     "view",
     [
       _c(
-        "cu-custom",
-        {
-          attrs: {
-            bgColor: "bg-gradual-pink",
-            isBack: true,
-            mpcomid: "881c917e-0"
-          }
-        },
+        "scroll-view",
+        { staticClass: "page", attrs: { "scroll-y": "" } },
         [
-          _c("block", { slot: "backText" }, [_vm._v("返回")]),
-          _c("block", { slot: "content" }, [_vm._v("卡片")])
+          _c(
+            "cu-custom",
+            {
+              attrs: {
+                bgColor: "bg-gradual-pink",
+                isBack: true,
+                mpcomid: "881c917e-0"
+              }
+            },
+            [
+              _c("block", { slot: "backText" }, [_vm._v("返回")]),
+              _c("block", { slot: "content" }, [_vm._v("比你兽")])
+            ],
+            1
+          ),
+          _c(
+            "view",
+            {
+              staticClass:
+                "bg-gradual-blue flex solid-bottom padding justify-center",
+              staticStyle: {
+                "background-image":
+                  "url(https://ossweb-img.qq.com/images/lol/web201310/skin/big91005.jpg)"
+              }
+            },
+            [
+              _c(
+                "view",
+                {
+                  staticClass: "padding-sm margin-xs radius",
+                  class: 0 == _vm.TabCur ? "bg-green" : "bg-white ",
+                  attrs: { "data-id": "0", eventid: "881c917e-0" },
+                  on: { tap: _vm.tabSelect }
+                },
+                [
+                  _c("text", {
+                    class: "cuIcon-crown" + [0 == _vm.TabCur ? "fill" : ""]
+                  }),
+                  _vm._v("我的游戏")
+                ]
+              ),
+              _c(
+                "view",
+                {
+                  staticClass: "padding-sm margin-xs radius",
+                  class: 1 == _vm.TabCur ? "bg-green" : "bg-white ",
+                  attrs: { "data-id": "1", eventid: "881c917e-1" },
+                  on: { tap: _vm.tabSelect }
+                },
+                [
+                  _c("text", {
+                    class: "cuIcon-friend" + [1 == _vm.TabCur ? "fill" : ""]
+                  }),
+                  _vm._v("好友的游戏")
+                ]
+              ),
+              _c(
+                "view",
+                {
+                  staticClass: "padding-sm margin-xs radius",
+                  class: 2 == _vm.TabCur ? "bg-green" : "bg-white ",
+                  attrs: { "data-id": "2", eventid: "881c917e-2" },
+                  on: { tap: _vm.tabSelect }
+                },
+                [
+                  _c("text", {
+                    class: "cuIcon-hot" + [2 == _vm.TabCur ? "fill" : ""]
+                  }),
+                  _vm._v("热门")
+                ]
+              )
+            ]
+          ),
+          0 == _vm.TabCur
+            ? _c("view", [
+                _c("view", { staticClass: "cu-card dynamic" }, [
+                  _c("view", { staticClass: "cu-item shadow" }, [
+                    _c("view", { staticClass: "cu-list menu-avatar" }, [
+                      _c("view", { staticClass: "cu-item" }, [
+                        _c("view", {
+                          staticClass: "cu-avatar round lg",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
+                          }
+                        }),
+                        _c("view", { staticClass: "content flex-sub" }, [
+                          _c("view", [_vm._v("卡尔")]),
+                          _c(
+                            "view",
+                            {
+                              staticClass:
+                                "text-gray text-sm flex justify-between"
+                            },
+                            [_vm._v("发起:2019年12月3日")]
+                          )
+                        ]),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", { staticClass: "text-green" }, [
+                              _vm._v("开始:2019年12月3日")
+                            ]),
+                            _c("view", { staticClass: "text-red" }, [
+                              _vm._v("结束:2019年12月3日")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _c("view", { staticClass: "flex align-center" }, [
+                      _c(
+                        "view",
+                        {
+                          staticClass:
+                            "flex-sub solid-bottom text-xl padding title"
+                        },
+                        [
+                          _c("view", { staticClass: "text-black text-cut" }, [
+                            _vm._v("5天减肥10斤5天减肥10斤")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _c(
+                      "view",
+                      { staticClass: "grid flex-sub padding-lr col-1" },
+                      [
+                        _c("view", {
+                          staticClass: "bg-img only-img",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg)"
+                          }
+                        })
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      {
+                        staticClass:
+                          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
+                      },
+                      [
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-red light round" },
+                          [
+                            _vm._v("胜利投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("总投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("失败投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      { staticClass: "flex padding-lr margin-top-xs" },
+                      [
+                        _c(
+                          "button",
+                          { staticClass: "cu-btn round flex-sub bg-red" },
+                          [_vm._v("加注")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          1 == _vm.TabCur
+            ? _c("view", [
+                _c("view", { staticClass: "cu-card article" }, [
+                  _c("view", { staticClass: "cu-item shadow" }, [
+                    _c("view", { staticClass: "cu-tag bg-blue" }, [
+                      _vm._v("好友")
+                    ]),
+                    _c("view", { staticClass: "title" }, [
+                      _c("view", { staticClass: "text-cut" }, [
+                        _vm._v(
+                          "5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤"
+                        )
+                      ])
+                    ]),
+                    _c("view", { staticClass: "cu-list menu-avatar" }, [
+                      _c("view", { staticClass: "cu-item" }, [
+                        _c("view", {
+                          staticClass: "cu-avatar round lg",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
+                          }
+                        }),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", [_vm._v("卡尔")]),
+                            _c("view", { staticClass: "text-gray" }, [
+                              _vm._v("发起:2019年12月3日")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", { staticClass: "text-green" }, [
+                              _vm._v("开始:2019年12月3日")
+                            ]),
+                            _c("view", { staticClass: "text-red" }, [
+                              _vm._v("结束:2019年12月3日")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass:
+                          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
+                      },
+                      [
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-red light round" },
+                          [
+                            _vm._v("胜利投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("总投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("失败投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      { staticClass: "flex padding-lr margin-top-xs" },
+                      [
+                        _c(
+                          "button",
+                          { staticClass: "cu-btn round flex-sub bg-red" },
+                          [_vm._v("加注")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _c("view", { staticClass: "cu-card article" }, [
+                  _c("view", { staticClass: "cu-item shadow" }, [
+                    _c("view", { staticClass: "cu-tag bg-blue" }, [
+                      _vm._v("好友")
+                    ]),
+                    _c("view", { staticClass: "title" }, [
+                      _c("view", { staticClass: "text-cut" }, [
+                        _vm._v(
+                          "5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤"
+                        )
+                      ])
+                    ]),
+                    _c("view", { staticClass: "cu-list menu-avatar" }, [
+                      _c("view", { staticClass: "cu-item" }, [
+                        _c("view", {
+                          staticClass: "cu-avatar round lg",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
+                          }
+                        }),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", [_vm._v("卡尔")]),
+                            _c("view", { staticClass: "text-gray" }, [
+                              _vm._v("发起:2019年12月3日")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", { staticClass: "text-green" }, [
+                              _vm._v("开始:2019年12月3日")
+                            ]),
+                            _c("view", { staticClass: "text-red" }, [
+                              _vm._v("结束:2019年12月3日")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass:
+                          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
+                      },
+                      [
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-red light round" },
+                          [
+                            _vm._v("胜利投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("总投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("失败投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      { staticClass: "flex padding-lr margin-top-xs" },
+                      [
+                        _c(
+                          "button",
+                          { staticClass: "cu-btn round flex-sub bg-red" },
+                          [_vm._v("加注")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _c("view", { staticClass: "cu-card article" }, [
+                  _c("view", { staticClass: "cu-item shadow" }, [
+                    _c("view", { staticClass: "cu-tag bg-blue" }, [
+                      _vm._v("好友")
+                    ]),
+                    _c("view", { staticClass: "title" }, [
+                      _c("view", { staticClass: "text-cut" }, [
+                        _vm._v(
+                          "5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤"
+                        )
+                      ])
+                    ]),
+                    _c("view", { staticClass: "cu-list menu-avatar" }, [
+                      _c("view", { staticClass: "cu-item" }, [
+                        _c("view", {
+                          staticClass: "cu-avatar round lg",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
+                          }
+                        }),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", [_vm._v("卡尔")]),
+                            _c("view", { staticClass: "text-gray" }, [
+                              _vm._v("发起:2019年12月3日")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", { staticClass: "text-green" }, [
+                              _vm._v("开始:2019年12月3日")
+                            ]),
+                            _c("view", { staticClass: "text-red" }, [
+                              _vm._v("结束:2019年12月3日")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass:
+                          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
+                      },
+                      [
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-red light round" },
+                          [
+                            _vm._v("胜利投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("总投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("失败投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      { staticClass: "flex padding-lr margin-top-xs" },
+                      [
+                        _c(
+                          "button",
+                          { staticClass: "cu-btn round flex-sub bg-red" },
+                          [_vm._v("加注")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          2 == _vm.TabCur
+            ? _c("view", [
+                _c("view", { staticClass: "cu-card article" }, [
+                  _c("view", { staticClass: "cu-item shadow" }, [
+                    _c("view", { staticClass: "cu-tag bg-red" }, [
+                      _vm._v("热门")
+                    ]),
+                    _c("view", { staticClass: "title" }, [
+                      _c("view", { staticClass: "text-cut" }, [
+                        _vm._v(
+                          "5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤"
+                        )
+                      ])
+                    ]),
+                    _c("view", { staticClass: "cu-list menu-avatar" }, [
+                      _c("view", { staticClass: "cu-item" }, [
+                        _c("view", {
+                          staticClass: "cu-avatar round lg",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
+                          }
+                        }),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", [_vm._v("卡尔")]),
+                            _c("view", { staticClass: "text-gray" }, [
+                              _vm._v("发起:2019年12月3日")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", { staticClass: "text-green" }, [
+                              _vm._v("开始:2019年12月3日")
+                            ]),
+                            _c("view", { staticClass: "text-red" }, [
+                              _vm._v("结束:2019年12月3日")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass:
+                          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
+                      },
+                      [
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-red light round" },
+                          [
+                            _vm._v("胜利投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("总投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("失败投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      { staticClass: "flex padding-lr margin-top-xs" },
+                      [
+                        _c(
+                          "button",
+                          { staticClass: "cu-btn round flex-sub bg-red" },
+                          [_vm._v("加注")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _c("view", { staticClass: "cu-card article" }, [
+                  _c("view", { staticClass: "cu-item shadow" }, [
+                    _c("view", { staticClass: "cu-tag bg-red" }, [
+                      _vm._v("热门")
+                    ]),
+                    _c("view", { staticClass: "title" }, [
+                      _c("view", { staticClass: "text-cut" }, [
+                        _vm._v(
+                          "5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤"
+                        )
+                      ])
+                    ]),
+                    _c("view", { staticClass: "cu-list menu-avatar" }, [
+                      _c("view", { staticClass: "cu-item" }, [
+                        _c("view", {
+                          staticClass: "cu-avatar round lg",
+                          staticStyle: {
+                            "background-image":
+                              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
+                          }
+                        }),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", [_vm._v("卡尔")]),
+                            _c("view", { staticClass: "text-gray" }, [
+                              _vm._v("发起:2019年12月3日")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "text-left margin-right-sm" },
+                          [
+                            _c("view", { staticClass: "text-green" }, [
+                              _vm._v("开始:2019年12月3日")
+                            ]),
+                            _c("view", { staticClass: "text-red" }, [
+                              _vm._v("结束:2019年12月3日")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _c(
+                      "view",
+                      {
+                        staticClass:
+                          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
+                      },
+                      [
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-red light round" },
+                          [
+                            _vm._v("胜利投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("总投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          { staticClass: "cu-tag bg-green light round" },
+                          [
+                            _vm._v("失败投注"),
+                            _c("text", { staticClass: "text-price" }, [
+                              _vm._v("10")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      { staticClass: "flex padding-lr margin-top-xs" },
+                      [
+                        _c(
+                          "button",
+                          { staticClass: "cu-btn round flex-sub bg-red" },
+                          [_vm._v("加注")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _c("view", { staticClass: "cu-tabbar-height" })
         ],
         1
-      ),
-      _c(
-        "view",
-        {
-          staticClass:
-            "bg-gradual-blue flex solid-bottom padding justify-center",
-          staticStyle: {
-            "background-image":
-              "url(https://ossweb-img.qq.com/images/lol/web201310/skin/big91005.jpg)"
-          }
-        },
-        [
-          _c(
-            "view",
-            {
-              staticClass: "padding-sm margin-xs radius",
-              class: 0 == _vm.TabCur ? "bg-green" : "bg-white ",
-              attrs: { "data-id": "0", eventid: "881c917e-0" },
-              on: { tap: _vm.tabSelect }
-            },
-            [
-              _c("text", {
-                class: "cuIcon-crown" + [0 == _vm.TabCur ? "fill" : ""]
-              }),
-              _vm._v("我的游戏")
-            ]
-          ),
-          _c(
-            "view",
-            {
-              staticClass: "padding-sm margin-xs radius",
-              class: 1 == _vm.TabCur ? "bg-green" : "bg-white ",
-              attrs: { "data-id": "1", eventid: "881c917e-1" },
-              on: { tap: _vm.tabSelect }
-            },
-            [
-              _c("text", {
-                class: "cuIcon-friend" + [1 == _vm.TabCur ? "fill" : ""]
-              }),
-              _vm._v("好友的游戏")
-            ]
-          ),
-          _c(
-            "view",
-            {
-              staticClass: "padding-sm margin-xs radius",
-              class: 2 == _vm.TabCur ? "bg-green" : "bg-white ",
-              attrs: { "data-id": "2", eventid: "881c917e-2" },
-              on: { tap: _vm.tabSelect }
-            },
-            [
-              _c("text", {
-                class: "cuIcon-hot" + [2 == _vm.TabCur ? "fill" : ""]
-              }),
-              _vm._v("热门")
-            ]
-          )
-        ]
-      ),
-      0 == _vm.TabCur
-        ? _c("view", [
-            _c("view", { staticClass: "cu-card dynamic" }, [
-              _c("view", { staticClass: "cu-item shadow" }, [
-                _vm._m(0),
-                _vm._m(1),
-                _vm._m(2),
-                _vm._m(3),
-                _c(
-                  "view",
-                  { staticClass: "flex padding-lr margin-top-xs" },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "cu-btn round flex-sub bg-red" },
-                      [_vm._v("加注")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      1 == _vm.TabCur
-        ? _c("view", [
-            _c("view", { staticClass: "cu-card article" }, [
-              _c("view", { staticClass: "cu-item shadow" }, [
-                _vm._m(4),
-                _vm._m(5),
-                _vm._m(6),
-                _c(
-                  "view",
-                  { staticClass: "flex padding-lr margin-top-xs" },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "cu-btn round flex-sub bg-red" },
-                      [_vm._v("加注")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _c("view", { staticClass: "cu-card article" }, [
-              _c("view", { staticClass: "cu-item shadow" }, [
-                _vm._m(7),
-                _vm._m(8),
-                _vm._m(9),
-                _c(
-                  "view",
-                  { staticClass: "flex padding-lr margin-top-xs" },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "cu-btn round flex-sub bg-red" },
-                      [_vm._v("加注")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      2 == _vm.TabCur
-        ? _c("view", [
-            _c("view", { staticClass: "cu-card article" }, [
-              _c("view", { staticClass: "cu-item shadow" }, [
-                _vm._m(10),
-                _vm._m(11),
-                _vm._m(12),
-                _c(
-                  "view",
-                  { staticClass: "flex padding-lr margin-top-xs" },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "cu-btn round flex-sub bg-red" },
-                      [_vm._v("加注")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _c("view", { staticClass: "cu-card article" }, [
-              _c("view", { staticClass: "cu-item shadow" }, [
-                _vm._m(13),
-                _vm._m(14),
-                _vm._m(15),
-                _c(
-                  "view",
-                  { staticClass: "flex padding-lr margin-top-xs" },
-                  [
-                    _c(
-                      "button",
-                      { staticClass: "cu-btn round flex-sub bg-red" },
-                      [_vm._v("加注")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _c("view", { staticClass: "cu-tabbar-height" })
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "cu-list menu-avatar" }, [
-      _c("view", { staticClass: "cu-item" }, [
-        _c("view", {
-          staticClass: "cu-avatar round lg",
-          staticStyle: {
-            "background-image":
-              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
-          }
-        }),
-        _c("view", { staticClass: "content flex-sub" }, [
-          _c("view", [_vm._v("卡尔")]),
-          _c(
-            "view",
-            { staticClass: "text-gray text-sm flex justify-between" },
-            [_vm._v("发起:2019年12月3日")]
-          )
-        ]),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", { staticClass: "text-green" }, [
-            _vm._v("开始:2019年12月3日")
-          ]),
-          _c("view", { staticClass: "text-red" }, [
-            _vm._v("结束:2019年12月3日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "flex align-center" }, [
-      _c(
-        "view",
-        { staticClass: "flex-sub solid-bottom text-xl padding title" },
-        [
-          _c("view", { staticClass: "text-black text-cut" }, [
-            _vm._v("5天减肥10斤5天减肥10斤")
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "grid flex-sub padding-lr col-1" }, [
-      _c("view", {
-        staticClass: "bg-img only-img",
-        staticStyle: {
-          "background-image":
-            "url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg)"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "view",
-      {
-        staticClass:
-          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
-      },
-      [
-        _c("view", { staticClass: "cu-tag bg-red light round" }, [
-          _vm._v("胜利投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("总投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("失败投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "title" }, [
-      _c("view", { staticClass: "text-cut" }, [
-        _vm._v("5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "cu-list menu-avatar" }, [
-      _c("view", { staticClass: "cu-item" }, [
-        _c("view", {
-          staticClass: "cu-avatar round lg",
-          staticStyle: {
-            "background-image":
-              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
-          }
-        }),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", [_vm._v("卡尔")]),
-          _c("view", { staticClass: "text-gray" }, [
-            _vm._v("发起:2019年12月3日")
-          ])
-        ]),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", { staticClass: "text-green" }, [
-            _vm._v("开始:2019年12月3日")
-          ]),
-          _c("view", { staticClass: "text-red" }, [
-            _vm._v("结束:2019年12月3日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "view",
-      {
-        staticClass:
-          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
-      },
-      [
-        _c("view", { staticClass: "cu-tag bg-red light round" }, [
-          _vm._v("胜利投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("总投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("失败投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "title" }, [
-      _c("view", { staticClass: "text-cut" }, [
-        _vm._v("5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "cu-list menu-avatar" }, [
-      _c("view", { staticClass: "cu-item" }, [
-        _c("view", {
-          staticClass: "cu-avatar round lg",
-          staticStyle: {
-            "background-image":
-              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
-          }
-        }),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", [_vm._v("卡尔")]),
-          _c("view", { staticClass: "text-gray" }, [
-            _vm._v("发起:2019年12月3日")
-          ])
-        ]),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", { staticClass: "text-green" }, [
-            _vm._v("开始:2019年12月3日")
-          ]),
-          _c("view", { staticClass: "text-red" }, [
-            _vm._v("结束:2019年12月3日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "view",
-      {
-        staticClass:
-          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
-      },
-      [
-        _c("view", { staticClass: "cu-tag bg-red light round" }, [
-          _vm._v("胜利投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("总投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("失败投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "title" }, [
-      _c("view", { staticClass: "text-cut" }, [
-        _vm._v("5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "cu-list menu-avatar" }, [
-      _c("view", { staticClass: "cu-item" }, [
-        _c("view", {
-          staticClass: "cu-avatar round lg",
-          staticStyle: {
-            "background-image":
-              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
-          }
-        }),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", [_vm._v("卡尔")]),
-          _c("view", { staticClass: "text-gray" }, [
-            _vm._v("发起:2019年12月3日")
-          ])
-        ]),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", { staticClass: "text-green" }, [
-            _vm._v("开始:2019年12月3日")
-          ]),
-          _c("view", { staticClass: "text-red" }, [
-            _vm._v("结束:2019年12月3日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "view",
-      {
-        staticClass:
-          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
-      },
-      [
-        _c("view", { staticClass: "cu-tag bg-red light round" }, [
-          _vm._v("胜利投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("总投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("失败投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "title" }, [
-      _c("view", { staticClass: "text-cut" }, [
-        _vm._v("5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "cu-list menu-avatar" }, [
-      _c("view", { staticClass: "cu-item" }, [
-        _c("view", {
-          staticClass: "cu-avatar round lg",
-          staticStyle: {
-            "background-image":
-              "url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png)"
-          }
-        }),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", [_vm._v("卡尔")]),
-          _c("view", { staticClass: "text-gray" }, [
-            _vm._v("发起:2019年12月3日")
-          ])
-        ]),
-        _c("view", { staticClass: "text-left margin-right-sm" }, [
-          _c("view", { staticClass: "text-green" }, [
-            _vm._v("开始:2019年12月3日")
-          ]),
-          _c("view", { staticClass: "text-red" }, [
-            _vm._v("结束:2019年12月3日")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "view",
-      {
-        staticClass:
-          "flex align-center text-center justify-around text-lg padding-lr margin-top-xs"
-      },
-      [
-        _c("view", { staticClass: "cu-tag bg-red light round" }, [
-          _vm._v("胜利投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("总投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ]),
-        _c("view", { staticClass: "cu-tag bg-green light round" }, [
-          _vm._v("失败投注"),
-          _c("text", { staticClass: "text-price" }, [_vm._v("10")])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -7820,7 +8130,140 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("view")
+  return _c(
+    "view",
+    [
+      _c(
+        "scroll-view",
+        { staticClass: "page", attrs: { "scroll-y": "" } },
+        [
+          _c(
+            "cu-custom",
+            {
+              attrs: {
+                bgColor: "bg-gradual-pink",
+                isBack: true,
+                mpcomid: "6547fa1b-0"
+              }
+            },
+            [
+              _c("block", { slot: "backText" }, [_vm._v("返回")]),
+              _c("block", { slot: "content" }, [_vm._v("比你兽")])
+            ],
+            1
+          ),
+          _c("view", { staticClass: "cu-list menu" }, [
+            _c(
+              "view",
+              {
+                staticClass: "cu-item arrow",
+                attrs: { eventid: "6547fa1b-0" },
+                on: {
+                  tap: function($event) {
+                    _vm.$_click("avatar")
+                  }
+                }
+              },
+              [
+                _c("view", { staticClass: "content" }, [
+                  _c("text", { staticClass: "cuIcon-circlefill text-grey" }),
+                  _c("text", { staticClass: "text-grey" }, [_vm._v("头像")])
+                ]),
+                _c(
+                  "view",
+                  {
+                    staticClass: "cu-avatar round margin-left",
+                    staticStyle: {
+                      "background-image":
+                        "url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg)"
+                    }
+                  },
+                  [
+                    _c("view", {
+                      staticClass: "cu-tag badge cuIcon-female bg-pink"
+                    })
+                  ]
+                )
+              ]
+            ),
+            _c("view", { staticClass: "cu-item arrow" }, [
+              _c("view", { staticClass: "content" }, [
+                _c("text", { staticClass: "cuIcon-crownfill lg text-brown" }),
+                _c("text", { staticClass: "text-grey" }, [_vm._v("昵称")])
+              ]),
+              _c("view", { staticClass: "action" }, [
+                _c("text", { staticClass: "text-black" }, [_vm._v("养生达人")])
+              ])
+            ]),
+            _c("view", { staticClass: "cu-item arrow" }, [
+              _c("view", { staticClass: "content" }, [
+                _c("text", {
+                  staticClass: "cuIcon-upstagefill lg text-yellow"
+                }),
+                _c("text", { staticClass: "text-grey" }, [_vm._v("积分")])
+              ]),
+              _c("view", { staticClass: "action" }, [
+                _c("text", { staticClass: "text-grey" }, [_vm._v("4000")])
+              ])
+            ]),
+            _c("view", { staticClass: "cu-item arrow" }, [
+              _c("view", { staticClass: "content" }, [
+                _c("text", { staticClass: "cuIcon-likefill lg text-red" }),
+                _c("text", { staticClass: "text-grey" }, [_vm._v("爱好")])
+              ]),
+              _c("view", { staticClass: "action" }, [
+                _c("view", { staticClass: "cu-tag round bg-orange light" }, [
+                  _vm._v("音乐")
+                ]),
+                _c("view", { staticClass: "cu-tag round bg-olive light" }, [
+                  _vm._v("电影")
+                ]),
+                _c("view", { staticClass: "cu-tag round bg-blue light" }, [
+                  _vm._v("旅行")
+                ])
+              ])
+            ]),
+            _c("view", { staticClass: "cu-item arrow" }, [
+              _c("view", { staticClass: "content" }, [
+                _c("text", { staticClass: "cuIcon-dianhua lg text-blue" }),
+                _c("text", { staticClass: "text-grey" }, [_vm._v("联系方式")])
+              ]),
+              _c("view", { staticClass: "action" }, [
+                _c("text", { staticClass: "text-black" }, [
+                  _vm._v("17701580237")
+                ])
+              ])
+            ]),
+            _c("view", { staticClass: "cu-item arrow" }, [
+              _c("view", { staticClass: "content" }, [
+                _c("text", { staticClass: "cuIcon-homefill lg text-grey" }),
+                _c("text", { staticClass: "text-grey" }, [_vm._v("我的地址")])
+              ]),
+              _c("view", { staticClass: "action" }, [
+                _c("text", { staticClass: "text-black" }, [
+                  _vm._v("南京市xxx区xxx街道")
+                ])
+              ])
+            ]),
+            _c("view", { staticClass: "cu-item arrow" }, [
+              _c("view", { staticClass: "content" }, [
+                _c("text", {
+                  staticClass: "cuIcon-moneybagfill lg text-yellow"
+                }),
+                _c("text", { staticClass: "text-grey" }, [_vm._v("钱包")])
+              ]),
+              _c("view", { staticClass: "action" }, [
+                _c("text", { staticClass: "text-black" }, [_vm._v("481")])
+              ])
+            ])
+          ]),
+          _c("view", { staticClass: "cu-tabbar-height" })
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

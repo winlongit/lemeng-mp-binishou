@@ -169,6 +169,7 @@
             "path" : "pages/right/right",
             "style" : {}
         }
+		
     ],
 	"globalStyle": {
 		"mp-alipay": {

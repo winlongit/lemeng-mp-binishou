@@ -5,12 +5,14 @@
 	},
 	"setting": {
 		"urlCheck": false,
-		"es6": true
+		"es6": true,
+		"postcss": true,
+		"minified": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.4",
-	"appid": "touristappid",
-	"projectname": "ColorUi%20for%20UniApp",
+	"appid": "wxd6aefbe7d94175f6",
+	"projectname": "ColorUi for UniApp",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

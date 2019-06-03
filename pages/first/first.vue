@@ -17,7 +17,7 @@
 			<!-- </view> -->
 			<view class="action" @click="NavChange" data-cur="right">
 				<view class='cuIcon-cu-image'>
-					<image :src="'/static/tabbar/plugin' + [PageCur == 'right'?'_cur':''] + '.png'"></image>
+					<image :src="'/static/tabbar/about' + [PageCur == 'right'?'_cur':''] + '.png'"></image>
 				</view>
 				<view :class="PageCur=='right'?'text-green':'text-gray'">我的</view>
 			</view>
@@ -91,6 +91,42 @@
 				dateFrom: '2019-06-01',
 				dateTo: '2019-06-25'
 			}
+		},
+		onLoad: function(option) { //option为object类型，会序列化上个页面传递的参数
+			console.log(option.id); //打印出上个页面传递的参数。
+			console.log(option.name); //打印出上个页面传递的参数。
+			console.log("haha");
+			uni.login({
+				provider: 'weixin',
+				success: function(loginRes) {
+					console.log(loginRes);
+										uni.request({
+						url: 'http://lemeng.mynatapp.cc/xcc/login', //仅为示例，并非真实接口地址。
+						data: {
+							"code": loginRes.code
+						},
+						header: {
+							//自定义请求头信息
+							'content-type':'application/json'
+						},
+						method:"POST",
+						success: (res) => {
+							console.log(res);
+						}
+					});
+				}
+			});
+			uni.checkSession({
+				success: function(res) {
+					console.log(res)
+				}
+			});
+			uni.getUserInfo({
+				success: function(res) {
+					console.log(res)
+				}
+			})
+
 		},
 		methods: {
 			NavChange: function(e) {

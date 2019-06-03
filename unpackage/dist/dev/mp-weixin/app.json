@@ -38,5 +38,6 @@
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

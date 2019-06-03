@@ -102,6 +102,42 @@
       dateTo: '2019-06-25' };
 
   },
+  onLoad: function onLoad(option) {//option为object类型，会序列化上个页面传递的参数
+    console.log(option.id); //打印出上个页面传递的参数。
+    console.log(option.name); //打印出上个页面传递的参数。
+    console.log("haha");
+    uni.login({
+      provider: 'weixin',
+      success: function success(loginRes) {
+        console.log(loginRes);
+        uni.request({
+          url: 'http://lemeng.mynatapp.cc/xcc/login', //仅为示例，并非真实接口地址。
+          data: {
+            "code": loginRes.code },
+
+          header: {
+            //自定义请求头信息
+            'content-type': 'application/json' },
+
+          method: "POST",
+          success: function success(res) {
+            console.log(res);
+          } });
+
+      } });
+
+    uni.checkSession({
+      success: function success(res) {
+        console.log(res);
+      } });
+
+    uni.getUserInfo({
+      success: function success(res) {
+        console.log(res);
+      } });
+
+
+  },
   methods: {
     NavChange: function NavChange(e) {
       this.PageCur = e.currentTarget.dataset.cur;
@@ -202,7 +238,7 @@ var render = function() {
               _c("image", {
                 attrs: {
                   src:
-                    "/static/tabbar/plugin" +
+                    "/static/tabbar/about" +
                     [_vm.PageCur == "right" ? "_cur" : ""] +
                     ".png"
                 }

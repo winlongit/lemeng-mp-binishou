@@ -87,6 +87,7 @@
 					</view>
 				</view>
 			</view>
+			
 			<view class="cu-list menu" :class="[menuBorder?'sm-border':'',menuCard?'card-menu margin-top':'']">
 				<view class="cu-item" :class="menuArrow?'arrow':''">
 					<view class="content">
