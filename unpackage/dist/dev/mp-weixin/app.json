@@ -29,7 +29,8 @@
     "pages/first/first",
     "pages/left/left",
     "pages/mid/mid",
-    "pages/right/right"
+    "pages/right/right",
+    "pages/mescroll/mescroll-test"
   ],
   "subPackages": [],
   "window": {
@@ -38,6 +39,12 @@
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {
+    "basics": "/pages/basics/home",
+    "components": "/pages/component/home",
+    "plugin": "/pages/plugin/home",
+    "left": "/pages/left/left",
+    "right": "/pages/right/right",
+    "cu-custom": "/colorui/components/cu-custom"
+  }
 }

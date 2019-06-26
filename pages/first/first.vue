@@ -9,7 +9,7 @@
 				</view>
 				<view :class="PageCur=='left'?'text-green':'text-gray'">首页</view>
 			</view>
-			<!-- <view class="action" @click="navto"> -->
+			<view class="action" @click="navto">挑啊挑</view>
 			<view class="action text-gray add-action" @tap="showModal" data-target="DialogModal1">
 				<button class="cu-btn cuIcon-add bg-green shadow"></button>
 				发起挑战
@@ -83,6 +83,8 @@
 </template>
 
 <script>
+	import api from '@/common/vmeitime-http/'
+	
 	export default {
 		data() {
 			return {
@@ -93,6 +95,19 @@
 			}
 		},
 		onLoad: function(option) { //option为object类型，会序列化上个页面传递的参数
+			api.test({noncestr: Date.now()}).then((res)=>{
+                    this.loading = false;
+                    console.log('request success', res)
+                    uni.showToast({
+                        title: '请求成功',
+                        icon: 'success',
+                        mask: true
+                    });
+                    this.res = '请求结果 : ' + JSON.stringify(res);
+                }).catch((err)=>{
+                    this.loading = false;
+                    console.log('request fail', err);
+                })
 			console.log(option.id); //打印出上个页面传递的参数。
 			console.log(option.name); //打印出上个页面传递的参数。
 			console.log("haha");
@@ -101,7 +116,7 @@
 				success: function(loginRes) {
 					console.log(loginRes);
 										uni.request({
-						url: 'http://lemeng.mynatapp.cc/xcc/login', //仅为示例，并非真实接口地址。
+						url: 'https://swu.mynatapp.cc/xcc/login', //仅为示例，并非真实接口地址。
 						data: {
 							"code": loginRes.code
 						},
@@ -134,7 +149,7 @@
 			},
 			navto: function(e) {
 				uni.navigateTo({
-					url: '/pages/mid/mid'
+					url: '/pages/mescroll/mescroll-test'
 				});
 			},
 			showModal(e) {

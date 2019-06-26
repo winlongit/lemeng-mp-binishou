@@ -34,7 +34,8 @@ page {
 	        flex-direction: column;
 	-webkit-box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
 	        box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 }
 .indexBar-item {
 	-webkit-box-flex: 1;
@@ -82,7 +83,8 @@ movable-view.indexBar-item::before {
 	background: rgba(0, 0, 0, 0.5);
 	width: 100rpx;
 	height: 100rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	margin: auto;
 	color: #fff;
 	line-height: 100rpx;

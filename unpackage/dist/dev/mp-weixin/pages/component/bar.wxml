@@ -1,2 +1,1 @@
-<import src="./bar.vue.wxml" />
-    <template is="e8437d9a" data="{{ ...$root['0'], $root }}"/>
+<view><cu-custom vue-id="1" bgColor="bg-gradual-pink" isBack="{{true}}" bind:__l="__l" vue-slots="{{['backText','content']}}"><view slot="backText">返回</view><view slot="content">操作条</view></cu-custom><view class="cu-bar tabbar shadow foot bg-white"><view class="action text-green"><view class="cuIcon-home"></view>兽兽</view><view class="action text-gray add-action"><button class="cu-btn cuIcon-add bg-green shadow"></button>发布</view><view class="action text-gray"><view class="cuIcon-my"><view class="cu-tag badge"></view></view>我的</view></view></view>

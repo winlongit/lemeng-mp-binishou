@@ -31,7 +31,7 @@ http.delete('user/1').then((res)=>{
 */
 export default {
 	config: {
-		baseUrl: "https://unidemo.dcloud.net.cn/",
+		baseUrl: "https://swu.mynatapp.cc",
 		header: {
 			'Content-Type':'application/json;charset=UTF-8',
 			'Content-Type':'application/x-www-form-urlencoded'
@@ -45,8 +45,15 @@ export default {
 		complete() {}
 	},
 	interceptor: {
-		request: null,
-		response: null
+		// request: null,
+		request: (config) => {
+			console.log(config);
+		},
+		// response: null
+		response: (response) => {
+			console.log(response);
+			return response;
+		},
 	},
 	request(options) {
 		if (!options) {
