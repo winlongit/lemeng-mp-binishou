@@ -74,7 +74,7 @@
 				</form>
 
 				<view class="cu-bar bg-white">
-					<view class="action margin-0 flex-treble text-green solid-left" @tap="hideModal">发布挑战</view>
+					<view class="action margin-0 flex-treble text-green solid-left" @tap="resPay">发布挑战</view>
 					<view class="action margin-0 flex-sub  solid-left text-gray" @tap="hideModal">取消</view>
 				</view>
 			</view>
@@ -84,6 +84,7 @@
 
 <script>
 	import api from '@/common/vmeitime-http/'
+	import { localStorage } from '@/js_sdk/mp-storage/mp-storage/index.js'
 	
 	export default {
 		data() {
@@ -116,7 +117,7 @@
 				success: function(loginRes) {
 					console.log(loginRes);
 										uni.request({
-						url: 'https://swu.mynatapp.cc/xcc/login', //仅为示例，并非真实接口地址。
+						url: 'https://swu.mynatapp.cc/xccAuth/login', //仅为示例，并非真实接口地址。
 						data: {
 							"code": loginRes.code
 						},
@@ -127,6 +128,8 @@
 						method:"POST",
 						success: (res) => {
 							console.log(res);
+							// 推荐用法,缓存
+							localStorage.setItem('openid', res.data.openid);
 						}
 					});
 				}
@@ -157,6 +160,30 @@
 			},
 			hideModal(e) {
 				this.modalName = null
+			},
+			resPay(e){
+				this.modalName = null
+				// 推荐用法,获取缓存
+				console.log(localStorage.getItem('openid'));
+				this.$api.get("/xccPay/reqPay",{openid: localStorage.getItem('openid')}).then((res)=>{
+				        console.log('request success', res)
+						uni.requestPayment({
+							provider: 'wxpay',
+							timeStamp: res.data.timeStamp,
+							nonceStr: res.data.nonceStr,
+							package: res.data.package,
+							signType: res.data.signType,
+							paySign: res.data.paySign,
+							success: function (res) {
+								console.log('success:' + JSON.stringify(res));
+							},
+							fail: function (err) {
+								console.log('fail:' + JSON.stringify(err));
+							}
+						});
+				    }).catch((err)=>{
+				        console.log('request fail', err);
+				    })
 			},
 			DateChange1(e) {
 				this.dateFrom = e.detail.value
