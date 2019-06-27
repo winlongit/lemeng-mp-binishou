@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "list-news",
-  "enablePullDownRefresh": false,
-  "onReachBottomDistance": 100,
-  "usingComponents": {
-    "mescroll-uni": "/components/mescroll-uni/mescroll-uni"
-  }
-}
