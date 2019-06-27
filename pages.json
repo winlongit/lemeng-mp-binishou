@@ -155,7 +155,14 @@
 		}
 	    ,{
             "path" : "pages/first/first",
-            "style" : {}
+            "style" : {
+            "navigationBarTitleText" : "",
+            "enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+            "onReachBottomDistance" : 100, // 页面上拉触底事件触发时距页面底部距离, 默认 50
+            "app-plus" : {
+                "bounce" : "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+				}
+			}
         }
         ,{
             "path" : "pages/left/left",
@@ -167,9 +174,26 @@
         }
         ,{
             "path" : "pages/right/right",
-            "style" : {}
+			"style" : {
+            "navigationBarTitleText" : "",
+            "enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+            "onReachBottomDistance" : 10, // 页面上拉触底事件触发时距页面底部距离, 默认 50
+            "app-plus" : {
+                "bounce" : "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+            	}
+            }
         }
-		
+		,{
+		    "path" : "pages/mescroll/mescroll-test",
+		    "style" : {
+				"navigationBarTitleText" : "list-news",
+				"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"onReachBottomDistance" : 100, // 页面上拉触底事件触发时距页面底部距离, 默认 50
+				"app-plus" : {
+					"bounce" : "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+				}
+			}
+		}
     ],
 	"globalStyle": {
 		"mp-alipay": {

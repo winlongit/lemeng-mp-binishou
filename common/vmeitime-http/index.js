@@ -29,6 +29,18 @@ export const test = (data) => {
     })
 }
 
+export const get = (url,data) => {
+    return http.request({
+        url,
+        method: 'GET', 
+        data,
+		// handle:true
+    })
+	http.get('user/list', {status: 1}).then((res)=>{
+		console.log(JSON.stringify(res))
+	})
+}
+
 // 轮播图
 export const banner = (data) => {
     return http.request({
@@ -42,5 +54,6 @@ export const banner = (data) => {
 // 默认全部导出  import api from '@/common/vmeitime-http/'
 export default {
 	test,
+	get,
     banner
 }
