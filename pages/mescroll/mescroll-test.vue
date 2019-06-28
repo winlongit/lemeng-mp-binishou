@@ -1,11 +1,71 @@
 <template>
-	<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" @init="mescrollInit">
-		<view class="notice">本Demo的下拉刷新: 添加新数据到列表顶部</view>
-		<view class="news-li" v-for="news in dataList" :key="news.id">
-			<view>{{news.title}}</view>
-			<view class="new-content">{{news.content}}</view>
+	<view>
+		
+		
+		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" @init="mescrollInit">
+			<view class="notice">本Demo的下拉刷新: 添加新数据到列表顶部</view>
+			<view class="news-li" v-for="news in dataList" :key="news.id">
+				<view>{{news.title}}</view>
+				<view class="new-content">{{news.content}}</view>
+				<view class="cu-card article">
+					<view class="cu-item shadow">
+						<view class="cu-tag bg-red">热门</view>
+						<view class="title"><view class="text-cut">5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤</view></view>
+						<view class="cu-list menu-avatar">
+							<view class="cu-item">
+								<!-- 头像图片 -->
+								<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+								<view class="text-left margin-right-sm">
+									<view>卡尔</view>
+									<view class="text-gray">发起:2019年12月3日</view>
+								</view>
+								<view class="text-left margin-right-sm">
+									<view class="text-green">开始:2019年12月3日</view>
+									<view class="text-red">结束:2019年12月3日</view>
+								</view>
+							</view>
+						</view>
+						<view class="flex align-center text-center justify-around text-lg padding-lr margin-top-xs">
+							<view class="cu-tag bg-red light round">
+								胜利投注
+								<text class="text-price">10</text>
+							</view>
+							<view class="cu-tag bg-green light round">
+								总投注
+								<text class="text-price">10</text>
+							</view>
+							<view class="cu-tag bg-green light round">
+								失败投注
+								<text class="text-price">10</text>
+							</view>
+						</view>
+						<view class="flex padding-lr margin-top-xs"><button class="cu-btn round flex-sub bg-red">加注</button></view>
+					</view>
+				</view>
+			</view>
+		</mescroll-uni>
+			
+		<view class="cu-bar tabbar bg-white shadow foot">
+			<view class="action" @click="NavChange" data-cur="left">
+				<view class='cuIcon-cu-image'>
+					<image :src="'/static/tabbar/basics' + [PageCur=='left'?'_cur':''] + '.png'"></image>
+				</view>
+				<view :class="PageCur=='left'?'text-green':'text-gray'">首页</view>
+			</view>
+			<view class="action" @click="navto">挑啊挑</view>
+			<view class="action text-gray add-action" @tap="showModal" data-target="DialogModal1">
+				<button class="cu-btn cuIcon-add bg-green shadow"></button>
+				发起挑战
+			</view>
+			<!-- </view> -->
+			<view class="action" @click="NavChange" data-cur="right">
+				<view class='cuIcon-cu-image'>
+					<image :src="'/static/tabbar/about' + [PageCur == 'right'?'_cur':''] + '.png'"></image>
+				</view>
+				<view :class="PageCur=='right'?'text-green':'text-gray'">我的</view>
+			</view>
 		</view>
-	</mescroll-uni>
+	</view>
 </template>
 
 <script>
