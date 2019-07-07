@@ -36,9 +36,6 @@ export const get = (url,data) => {
         data,
 		// handle:true
     })
-	http.get('user/list', {status: 1}).then((res)=>{
-		console.log(JSON.stringify(res))
-	})
 }
 
 // 轮播图

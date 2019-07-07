@@ -95,37 +95,45 @@
 				dateTo: '2019-06-25'
 			}
 		},
+
 		onLoad: function(option) { //option为object类型，会序列化上个页面传递的参数
-			api.test({noncestr: Date.now()}).then((res)=>{
-                    this.loading = false;
-                    console.log('request success', res)
-                    uni.showToast({
-                        title: '请求成功',
-                        icon: 'success',
-                        mask: true
-                    });
-                    this.res = '请求结果 : ' + JSON.stringify(res);
-                }).catch((err)=>{
-                    this.loading = false;
-                    console.log('request fail', err);
-                })
 			console.log(option.id); //打印出上个页面传递的参数。
 			console.log(option.name); //打印出上个页面传递的参数。
 			console.log("haha");
+			console.log(this.dateTo);
+			uni.getSetting({
+			   success(res) {
+					console.log("getsetting hahahaaha111");
+					console.log(res.authSetting)
+					console.log("getsetting hahahaaha222");
+					if (res.authSetting['scope.userInfo']) {
+					// 已经授权，可以直接调用 getUserInfo 获取头像昵称
+					wx.getUserInfo({
+						success: function(res) {
+							console.log("getsetting hahahaaha3333");
+							console.log(res.userInfo);
+							console.log("getsetting hahahaaha4444");
+						}
+					})
+					}
+			   }
+			}),
+
 			uni.login({
 				provider: 'weixin',
 				success: function(loginRes) {
 					console.log(loginRes);
 										uni.request({
-						url: 'https://swu.mynatapp.cc/xccAuth/login', //仅为示例，并非真实接口地址。
+						url: 'https://swu.mynatapp.cc/wx/user/wxd6aefbe7d94175f6/login', //仅为示例，并非真实接口地址。
 						data: {
 							"code": loginRes.code
 						},
 						header: {
 							//自定义请求头信息
-							'content-type':'application/json'
+							// 'content-type':'application/json'
+							'content-type':'application/x-www-form-urlencoded'
 						},
-						method:"POST",
+						method:"GET",
 						success: (res) => {
 							console.log(res);
 							// 推荐用法,缓存
@@ -134,19 +142,11 @@
 					});
 				}
 			});
-			uni.checkSession({
-				success: function(res) {
-					console.log(res)
-				}
-			});
-			uni.getUserInfo({
-				success: function(res) {
-					console.log(res)
-				}
-			})
-
 		},
 		methods: {
+			kk: function(){
+				console.log(this.dateTo);
+			},
 			NavChange: function(e) {
 				this.PageCur = e.currentTarget.dataset.cur
 			},
