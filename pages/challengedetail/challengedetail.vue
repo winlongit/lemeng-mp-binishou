@@ -1,79 +1,126 @@
 <template>
 	<view>
-		
+		<cu-custom bgColor="bg-gradual-pink" :isBack="true"><block slot="backText">返回</block><block slot="content">时间轴</block></cu-custom>
 		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" @init="mescrollInit">
-			<view class="notice">本Demo的下拉刷新: 添加新数据到列表顶部</view>
-			<view class="news-li" v-for="news in dataList" :key="news.id">
-				<view>{{news.title}}</view>
-				<view class="new-content">{{news.content}}</view>
-				<view class="cu-card article">
-					<view class="cu-item shadow">
-						<view class="cu-tag bg-red">热门</view>
-						<view class="title"><view class="text-cut">5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤</view></view>
-						<view class="cu-list menu-avatar">
-							<view class="cu-item">
-								<!-- 头像图片 -->
-								<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-								<view class="text-left margin-right-sm">
-									<view>卡尔</view>
-									<view class="text-gray">发起:2019年12月3日</view>
-								</view>
-								<view class="text-left margin-right-sm">
-									<view class="text-green">开始:2019年12月3日</view>
-									<view class="text-red">结束:2019年12月3日</view>
-								</view>
+						<view class="news-li" v-for="news in dataList" :key="news.id">
+		<view class="cu-timeline">
+			<view class="cu-time">昨天</view>
+			<view class="cu-item cur cuIcon-noticefill">
+				<view class="content bg-green shadow-blur">
+					<text>22:22</text> 【广州市】快件已到达地球
+				</view>
+			</view>
+			<view class="cu-item cur cuIcon-noticefill">
+				<view class="cu-capsule radius">
+					<view class="cu-tag bg-cyan">上午</view>
+					<view class="cu-tag line-cyan">10:00</view>
+				</view>
+				<image src="/static/componentBg.png" mode="widthFix" class="response"></image>
+				<image src="http://swu.mynatapp.cc/img/img_download" mode="widthFix" class="response"></image>
+			</view>
+			<view class="cu-item text-red cuIcon-attentionforbidfill">
+				<view class="cu-list menu-avatar radius">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+						<view class="content">
+							<view class="text-grey">文晓港</view>
+						</view>
+						<view class="action">
+							<view class="text-grey text-xs">22:20</view>
+						</view>
+					</view>
+				</view>
+				<view class="content bg-red shadow-blur">
+					这是第一次，我家的铲屎官走了这么久。久到足足有三天！！
+				</view>
+			</view>
+			<view class="cu-item text-red cuIcon-attentionforbidfill">
+				<view class="content bg-red shadow-blur">
+					这是第一次，我家的铲屎官走了这么久。久到足足有三天！！
+				</view>
+			</view>
+			<view class="cu-item text-grey cuIcon-evaluate_fill">
+				<view class="content bg-grey shadow-blur">
+					这是第一次，我家的铲屎官走了这么久。
+				</view>
+			</view>
+			<view class="cu-item text-blue">
+				<view class="bg-blue content">
+					<text>20:00</text> 【月球】快件已到达月球，准备发往地球
+				</view>
+				<view class="bg-cyan content">
+					<text>10:00</text> 【银河系】快件已到达银河系，准备发往月球
+				</view>
+			</view>
+		</view>
+
+		<view class="cu-timeline">
+			<view class="cu-time">06-17</view>
+			<view class="cu-item">
+				<view class="content">
+					<text>01:30</text> 【喵星】 MX-12138 已揽收，准备发往银河系
+				</view>
+			</view>
+		</view>
+
+		<view class="cu-timeline">
+			<view class="cu-time">06-17</view>
+			<view class="cu-item">
+				<view class="content">
+					<view class="cu-capsule radius">
+						<view class="cu-tag bg-cyan">上午</view>
+						<view class="cu-tag line-cyan">10:00</view>
+						<text>hahahaah</text>
+					</view>
+					<view class="margin-top">这是第一次，我家的铲屎官走了这么久。久到足足有三天！！ 在听到他的脚步声响在楼梯间的那一刻，我简直想要破门而出，对着他狠狠地吼上10分钟，然后再看心情要不要他进门。</view>
+				</view>
+			</view>
+			<view class="cu-item text-blue">
+				<view class="bg-blue shadow-blur content">
+					<view class="cu-list menu-avatar radius">
+						<view class="cu-item">
+							<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+							<view class="content">
+								<view class="text-grey">文晓港</view>
+								<view class="text-gray text-sm">
+									<text class="cuIcon-infofill text-red"></text> 消息未送达</view>
+							</view>
+							<view class="action">
+								<view class="text-grey text-xs">22:20</view>
+								<view class="cu-tag round bg-grey sm">5</view>
 							</view>
 						</view>
-						<view class="flex align-center text-center justify-around text-lg padding-lr margin-top-xs">
-							<view class="cu-tag bg-red light round">
-								胜利投注
-								<text class="text-price">10</text>
+						<view class="cu-item">
+							<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+								<view class="cu-tag badge">99+</view>
 							</view>
-							<view class="cu-tag bg-green light round">
-								总投注
-								<text class="text-price">10</text>
+							<view class="content">
+								<view class="text-grey">文晓港
+									<view class="cu-tag round orange sm">SVIP</view>
+								</view>
+								<view class="text-gray text-sm">
+									<text class="cuIcon-redpacket_fill text-red"></text> 收到红包</view>
 							</view>
-							<view class="cu-tag bg-green light round">
-								失败投注
-								<text class="text-price">10</text>
+							<view class="action">
+								<view class="text-grey text-xs">22:20</view>
+								<text class="cuIcon-notice_forbid_fill text-gray"></text>
 							</view>
 						</view>
-						<view class="flex padding-lr margin-top-xs"><button class="cu-btn round flex-sub bg-red">加注</button></view>
 					</view>
 				</view>
 			</view>
-		</mescroll-uni>
-			
-		<view class="cu-bar tabbar bg-white shadow foot">
-			<view class="action" @click="NavChange" data-cur="left">
-				<view class='cuIcon-cu-image'>
-					<image :src="'/static/tabbar/basics' + [PageCur=='left'?'_cur':''] + '.png'"></image>
-				</view>
-				<view :class="PageCur=='left'?'text-green':'text-gray'">首页</view>
-			</view>
-			<view class="action" @click="navto">挑啊挑</view>
-			<view class="action text-gray add-action" @tap="showModal" data-target="DialogModal1">
-				<button class="cu-btn cuIcon-add bg-green shadow"></button>
-				发起挑战
-			</view>
-			<!-- </view> -->
-			<view class="action" @click="NavChange" data-cur="right">
-				<view class='cuIcon-cu-image'>
-					<image :src="'/static/tabbar/about' + [PageCur == 'right'?'_cur':''] + '.png'"></image>
-				</view>
-				<view :class="PageCur=='right'?'text-green':'text-gray'">我的</view>
-			</view>
 		</view>
+		</view>
+		</mescroll-uni>
 	</view>
 </template>
 
 <script>
 	import MescrollUni from "@/components/mescroll-uni/mescroll-uni.vue";
-	
 	export default {
 		components: {
-			MescrollUni
-		},
+					MescrollUni
+				},
 		data() {
 			return {
 				mescroll: null, //mescroll实例对象
@@ -182,28 +229,13 @@
 					}
 				}, 1000)
 			}
+		},
+		onLoad: (option) => {
+			console.log(option.id);
 		}
 	}
 </script>
 
 <style>
-	/*说明*/
-	.notice{
-		font-size: 30upx;
-		padding: 40upx 0;
-		border-bottom: 1upx solid #eee;
-		text-align: center;
-	}
-	/*展示上拉加载的数据列表*/
-	.news-li{
-		font-size: 32upx;
-		padding: 32upx;
-		border-bottom: 1upx solid #eee;
-	}
-	.news-li .new-content{
-		font-size: 28upx;
-		margin-top: 10upx;
-		margin-left: 20upx;
-		color: #666;
-	}
+
 </style>

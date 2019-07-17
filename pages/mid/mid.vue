@@ -38,6 +38,9 @@
 		},
 		methods: {
 
+		},
+		onLoad: (option) => {
+			console.log(option.id)
 		}
 	}
 </script>

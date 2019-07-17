@@ -31,10 +31,7 @@
 				热门
 			</view>
 		</view>
-		<!-- #ifdef MP-WEIXIN -->
-		<!-- 需要使用 button 来授权登录 -->
-		<button v-if="canIUse" open-type="getUserInfo" @getuserinfo="bindGetUserInfo">获取微信用户信息</button>
-		<!-- #endif -->
+
 		<view v-if="0 == TabCur">
 			<view class="cu-card dynamic">
 				<view class="cu-item shadow">
@@ -189,42 +186,41 @@
 		</view>
 
 		<view v-if="2 == TabCur">
-					<view class="cu-card article">
-						<view class="cu-item shadow">
-							<view class="cu-tag bg-red">热门</view>
-							<view class="title"><view class="text-cut">5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤</view></view>
-							<view class="cu-list menu-avatar">
-								<view class="cu-item">
-									<!-- 头像图片 -->
-									<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-									<view class="text-left margin-right-sm">
-										<view>卡尔</view>
-										<view class="text-gray">发起:2019年12月3日</view>
-									</view>
-									<view class="text-left margin-right-sm">
-										<view class="text-green">开始:2019年12月3日</view>
-										<view class="text-red">结束:2019年12月3日</view>
-									</view>
-								</view>
+			<view class="cu-card article">
+				<view class="cu-item shadow">
+					<view class="cu-tag bg-red">热门</view>
+					<view class="title"><view class="text-cut">5天减肥10斤，5天减肥10斤，5天减肥10斤，5天减肥10斤</view></view>
+					<view class="cu-list menu-avatar">
+						<view class="cu-item">
+							<!-- 头像图片 -->
+							<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+							<view class="text-left margin-right-sm">
+								<view>卡尔</view>
+								<view class="text-gray">发起:2019年12月3日</view>
 							</view>
-							<view class="flex align-center text-center justify-around text-lg padding-lr margin-top-xs">
-								<view class="cu-tag bg-red light round">
-									胜利投注
-									<text class="text-price">10</text>
-								</view>
-								<view class="cu-tag bg-green light round">
-									总投注
-									<text class="text-price">10</text>
-								</view>
-								<view class="cu-tag bg-green light round">
-									失败投注
-									<text class="text-price">10</text>
-								</view>
+							<view class="text-left margin-right-sm">
+								<view class="text-green">开始:2019年12月3日</view>
+								<view class="text-red">结束:2019年12月3日</view>
 							</view>
-							<view class="flex padding-lr margin-top-xs"><button class="cu-btn round flex-sub bg-red">加注</button></view>
 						</view>
 					</view>
-
+					<view class="flex align-center text-center justify-around text-lg padding-lr margin-top-xs">
+						<view class="cu-tag bg-red light round">
+							胜利投注
+							<text class="text-price">10</text>
+						</view>
+						<view class="cu-tag bg-green light round">
+							总投注
+							<text class="text-price">10</text>
+						</view>
+						<view class="cu-tag bg-green light round">
+							失败投注
+							<text class="text-price">10</text>
+						</view>
+					</view>
+					<view class="flex padding-lr margin-top-xs"><button class="cu-btn round flex-sub bg-red">加注</button></view>
+				</view>
+			</view>
 		</view>
 
 		<!-- <view class="cu-tabbar-height"></view> -->
@@ -233,39 +229,26 @@
 </template>
 
 <script>
-
 export default {
 	name: 'left',
 	data() {
 		return {
-			canIUse:true,
 			pdList: [], // 数据列表
 			TabCur: 0
-		}
+		};
 	},
 	onLoad: function(option) {
-		console.log("getsetting hahahaaha");
-		uni.getSetting({
-		   success(res) {
-			  console.log("getsetting hahahaaha");
-			  console.log(res.authSetting)
-		   }
-		})
+		let that = this;
+		console.log(option.id);
+
 	},
 	methods: {
-		// #ifdef MP-WEIXIN
-		bindGetUserInfo (e) {
-			console.log(e.detail.userInfo);
-			this.canIUse = false;
-		},
-		// #endif
+
 		tabSelect(e) {
 			this.TabCur = e.currentTarget.dataset.id;
-		},
+		}
 	}
-	
 };
-
 </script>
 
 <style></style>
