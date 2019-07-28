@@ -35,8 +35,8 @@
 		<view v-if="0 == TabCur">
 			<view class="cu-card dynamic">
 				<view class="cu-item shadow">
+					<view class="cu-tag bg-purple">我的</view>
 					<view class="cu-list menu-avatar">
-						<!-- <view class="cu-tag bg-blue">史诗</view> -->
 						<view class="cu-item">
 							<!-- 头像图片 -->
 							<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
