@@ -1,7 +1,7 @@
 <template name="right">
 	<view>
-		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
-			<block slot="backText">返回</block>
+		<cu-custom bgColor="bg-gradual-pink" :isBack="false">
+			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">比你兽</block>
 		</cu-custom>
 

@@ -10,7 +10,8 @@
 			<view :class="PageCur=='PageIndex'?'text-green':'text-gray'">首页</view>
 		</view>
 		<!-- <view class="action" @click="navto">挑啊挑</view> -->
-		<view class="action text-gray add-action" @tap="showModal" data-target="DialogModal1">
+		<!-- <view class="action text-gray add-action" @tap="showModal" data-target="DialogModal1"> -->
+		<view class="action text-gray add-action" @tap="NavChangeNewChallenge" data-target="DialogModal1">
 			<button class="cu-btn cuIcon-add bg-green shadow"></button>
 			发起挑战
 		</view>
@@ -135,18 +136,27 @@
 			NavChangeIndex: function(e) {
 				// 如果当前也不是首页才跳转,不然跳转的话需要重新刷新页面,影响体验
 				if (this.PageCur !== "PageIndex") {
-					localStorage.setItem('PageCur', "PageIndex");
-					uni.navigateTo({
-						url: '/pages/first/first'
+					uni.redirectTo({
+						url: '/pages/first/first',
+						success:()=>localStorage.setItem('PageCur', "PageIndex")
 					});
 				}
 			},
 			// 跳转到个人信息页
 			NavChangeUserInfo: function(e) {
 				if (this.PageCur !== "PageUserInfo") {
-					localStorage.setItem('PageCur', "PageUserInfo");
-					uni.navigateTo({
-						url: '/pages/right/right'
+					uni.redirectTo({
+						url: '/pages/right/right',
+						success:()=>localStorage.setItem('PageCur', "PageUserInfo")
+					});
+				}
+			},
+			// 增加挑战页
+			NavChangeNewChallenge: function(e) {
+				if (this.PageCur !== "PageNewChallenge") {
+					uni.redirectTo({
+						url: '/pages/mid/mid',
+						success:()=>localStorage.setItem('PageCur', "PageNewChallenge")
 					});
 				}
 			},

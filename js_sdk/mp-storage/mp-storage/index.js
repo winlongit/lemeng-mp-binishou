@@ -1,6 +1,8 @@
 var api
 
-export var localStorage = {}
+export var localStorage = {
+
+}
 
 export var sessionStorage = {}
 
